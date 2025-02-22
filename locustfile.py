@@ -29,6 +29,9 @@ class UserBehavior(HttpUser):
 
         if response.status_code == 201:  # Jika berhasil register, simpan user ke daftar
             self.user_list.append({"username": username, "password": password})
+            print(f"User {username} berhasil terdaftar.")
+        else:
+            print(f"Gagal register user {username}. Status kode: {response.status_code}")
 
     @task(3)
     def login(self):
@@ -43,23 +46,54 @@ class UserBehavior(HttpUser):
             "password": user["password"]
         }
 
-        self.client.post(
+        response = self.client.post(
             f"{config.STAGING_URL}{config.ENDPOINTS_STAGING['login']}",
             headers=config.HEADERS_STAGING,
             json=payload
         )
 
+        if response.status_code == 200:
+            print(f"User {user['username']} berhasil login.")
+        else:
+            print(f"Gagal login untuk {user['username']}. Status kode: {response.status_code}")
+
     @task(1)
     def create_session_waha(self):
-        """Mengukur kecepatan pembuatan session di Waha API"""
-        self.client.post(
-            f"{config.API_BASE_URL_WAHA}{config.ENDPOINTS_WAHA['create_session']}",
-            headers=config.HEADERS_WAHA
-        )
+        """Mengukur kecepatan pembuatan session di WAHA API"""
+
+        # Menambahkan nama sesi unik untuk setiap request
+        session_name = f"session_{self.random_string(8)}"
+
+        payload = {
+            "name": session_name,  # Nama sesi
+            "config": {
+                "debug": True  # Menyalakan mode debug (sesuai dokumentasi WAHA)
+            }
+        }
+
+        try:
+            response = self.client.post(
+                f"{config.API_BASE_URL_WAHA}{config.ENDPOINTS_WAHA['create_session']}",
+                headers=config.HEADERS_WAHA,
+                json=payload
+            )
+
+            if response.status_code == 201:
+                print(f"Sesi {session_name} berhasil dibuat.")
+            else:
+                print(f"Gagal membuat sesi {session_name}. Status kode: {response.status_code}, Respons: {response.text}")
+
+        except Exception as e:
+            print(f"Terjadi error saat membuat sesi WAHA: {str(e)}")
 
     @task(1)
     def test_landing_page(self):
         """Mengukur kecepatan akses landing page di Staging"""
-        self.client.get(
+        response = self.client.get(
             f"{config.STAGING_URL}{config.ENDPOINTS_STAGING['landing_page']}"
         )
+
+        if response.status_code == 200:
+            print("Landing page berhasil diakses.")
+        else:
+            print(f"Gagal mengakses landing page. Status kode: {response.status_code}")
