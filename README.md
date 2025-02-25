@@ -1,6 +1,6 @@
 ## Pendahuluan
 
-Locust adalah alat pengujian beban yang memungkinkan Anda mensimulasikan sejumlah besar pengguna
+Tools ini dibuat untuk melakukan pengujian beban yang memungkinkan Anda mensimulasikan sejumlah besar pengguna
 secara bersamaan untuk menguji kinerja aplikasi web Anda. Repository ini menyediakan kerangka kerja
 dan skrip yang diperlukan untuk menjalankan pengujian beban menggunakan Locust.
 
