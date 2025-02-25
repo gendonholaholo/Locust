@@ -65,7 +65,7 @@ pip install -r requirements.txt
 ```
 
 ### Menjalankan Pengujian
-Setelah instalasi selesai, Anda dapat menjalankan pengujian beban dengan Locust:
+Setelah instalasi selesai, Anda dapat menjalankan pengujian beban dengan Locust.
 
 Menjalankan Locust
 ```bash
