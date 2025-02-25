@@ -36,9 +36,9 @@ Ikuti langkah-langkah berikut untuk mengatur lingkungan dan menjalankan pengujia
 
 ```bash
 git clone https://github.com/gendonholaholo/Locust.git
+cd Locust
 ```
 
-cd Locust
 ### Membuat Virtual Environment
 
 ```bash
