@@ -5,14 +5,14 @@ secara bersamaan untuk menguji kinerja aplikasi web Anda. Repository ini menyedi
 dan skrip yang diperlukan untuk menjalankan pengujian beban menggunakan Locust.
 
 ## Struktur Direktori
-#### Locust/  
-#### ├── config/  
-#### ├── reports/  
-#### ├── tests/  
-#### ├── utils/  
-#### ├── .gitignore  
-#### ├── locustfile.py  
-#### └── requirements.txt
+**Locust/**  
+**├── config/**  
+**├── reports/**  
+**├── tests/**  
+**├── utils/**  
+**├── .gitignore**  
+**├── locustfile.py**  
+**└── requirements.txt**
 
 - **config/**    : Berisi file konfigurasi untuk pengujian.
 - **reports/**   : Folder ini akan menyimpan laporan hasil pengujian.
