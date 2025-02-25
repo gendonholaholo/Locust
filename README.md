@@ -89,4 +89,4 @@ Setelah pengujian selesai, Locust akan menampilkan statistik kinerja di antarmuk
 ### Catatan Tambahan
 Kustomisasi Pengujian : Anda dapat memodifikasi locustfile.py dan menambahkan skrip tambahan di direktori tests/ untuk menyesuaikan skenario pengujian sesuai kebutuhan.
 Konfigurasi Tambahan : Sesuaikan file di direktori config/ untuk mengatur parameter pengujian lainnya, seperti waktu tunggu, header HTTP, atau data autentikasi.
-Untuk informasi lebih lanjut tentang penggunaan dan kustomisasi Locust, kunjungi dokumentasi resmi di: https://locust.io/. "
+Untuk informasi lebih lanjut tentang penggunaan dan kustomisasi Locust, kunjungi dokumentasi resmi di: https://locust.io/.
