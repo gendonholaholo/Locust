@@ -9,8 +9,9 @@ PROXY_LIST = [
 ]
 
 def get_random_proxy():
+    """Mengambil proxy secara acak dari daftar atau mengembalikan None jika kosong"""
     if not PROXY_LIST:
-        return None
+        return None  # Pastikan tidak mengembalikan dict kosong
 
     proxy = random.choice(PROXY_LIST)
-    return {"http": proxy, "https": proxy}
+    return {"http": f"http://{proxy}", "https": f"https://{proxy}"}

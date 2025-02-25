@@ -18,8 +18,8 @@
 # }
 
 # Staging BO 
-STAGING_BO_URL = "https://staging-bo.agencerdas.id/api"
 # STAGING_BO_URL = "https://staging-bo.agencerdas.id/up"
+STAGING_BO_URL = "https://staging-bo.agencerdas.id/api"
 HEADERS_STAGING_BO = {
     "Content-Type": "application/json"
 }
