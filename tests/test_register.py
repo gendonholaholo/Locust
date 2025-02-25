@@ -1,10 +1,12 @@
+from config import config
+from utils.json_handler import save_user_data
+from utils.logger import log_request
 from locust import HttpUser, task, between
+
 import random
 import string
 import os
 import json
-from config import config
-from utils.json_handler import save_user_data
 
 class RegisterTest(HttpUser):
     wait_time = between(1, 3)
@@ -33,6 +35,8 @@ class RegisterTest(HttpUser):
             headers=config.HEADERS_STAGING_BO,
             json=payload
         )
+
+        log_request("Register", response)
 
         if response.status_code == 201:
             print(f"User {random_email} berhasil register di Staging BO.")

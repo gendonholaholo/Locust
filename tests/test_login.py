@@ -1,7 +1,9 @@
 from locust import HttpUser, task, between
-import random
 from config import config
 from utils.json_handler import load_user_data
+from utils.logger import log_request
+
+import random
 
 class LoginTest(HttpUser):
     wait_time = between(1, 3)
@@ -22,6 +24,8 @@ class LoginTest(HttpUser):
             headers=config.HEADERS_STAGING_BO,
             json=payload
         )
+
+        log_request("Login", response)
 
         if response.status_code == 200:
             print(f"✅ Login berhasil untuk {payload['email']}.")
