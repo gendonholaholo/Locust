@@ -16,11 +16,11 @@ class UserBehavior(HttpUser):
     @task(10)
     def register_test(self):
         """Menjalankan register lebih cepat sebelum login"""
-        register_instance = RegisterTest(self.environment)  # Buat instance dari RegisterTest
-        random_email = f"{register_instance.random_string()}@test.com"  # Panggil method dengan benar
+        register_instance = RegisterTest(self.environment)
+        random_email = f"{register_instance.random_string()}@test.com"
         print(f"📩 Email yang dibuat: {random_email}")
 
-        response = register_instance.register_staging_bo()  # Gunakan instance untuk panggil method
+        response = register_instance.register_staging_bo()
         if response is not None:
             log_request("Register Task", response)
         else:

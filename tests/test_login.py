@@ -12,7 +12,7 @@ class LoginTest(HttpUser):
     def login_staging_bo(self):
         """Stress test endpoint login di Staging BO berdasarkan data dari idpass.json"""
         users = load_user_data()
-        if not users or len(users) == 0:  # Pastikan user list tidak kosong
+        if not users or len(users) == 0:
             print("⚠️ Tidak ada user untuk login.")
             return
 
