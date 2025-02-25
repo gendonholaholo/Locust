@@ -1,2 +1,4 @@
 locust
 requests
+pytest
+flake8
